@@ -6,9 +6,10 @@ interface ServiceProps {
   icon: string
   isActive: boolean
   onClick: () => void
+  index: number
 }
 
-const ServiceCard = ({ title, description, icon, isActive, onClick }: ServiceProps) => {
+const ServiceCard = ({ title, description, icon, isActive, onClick, index }: ServiceProps) => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       onClick()
@@ -82,6 +83,7 @@ const Services = () => {
               icon={service.icon}
               isActive={activeService === index}
               onClick={() => setActiveService(index)}
+              index={index}
             />
           ))}
         </div>
