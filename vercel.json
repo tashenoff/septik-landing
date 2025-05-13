@@ -1,6 +1,12 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm install --no-optional",
-  "framework": "vite",
-  "outputDirectory": "dist"
+  "installCommand": "npm install",
+  "outputDirectory": "dist",
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 } 
