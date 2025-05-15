@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+const TELEGRAM_BOT_TOKEN = '7149336396:AAE4xjrsCP6ywesCqinKSKy-gKLKZJqwBnQ'
+const TELEGRAM_CHAT_ID = '-1002489543692'
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,6 +13,7 @@ const Contact = () => {
   
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -17,16 +21,47 @@ const Contact = () => {
       ...prev,
       [name]: value
     }))
+    setError('')
+  }
+
+  const sendToTelegram = async (data: typeof formData) => {
+    const message = `
+🔔 Новая заявка с сайта:
+
+👤 Имя: ${data.name}
+📱 Телефон: ${data.phone}
+📧 Email: ${data.email || 'Не указан'}
+💬 Сообщение: ${data.message || 'Не указано'}
+    `.trim()
+
+    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: 'HTML'
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null)
+      console.error('Telegram API Error:', errorData)
+      throw new Error(`Ошибка при отправке сообщения: ${errorData?.description || response.statusText}`)
+    }
+
+    return response.json()
   }
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setError('')
     
-    // Имитация отправки формы
-    setTimeout(() => {
-      console.log('Form submitted:', formData)
-      setIsLoading(false)
+    try {
+      await sendToTelegram(formData)
       setIsSubmitted(true)
       setFormData({
         name: '',
@@ -34,7 +69,12 @@ const Contact = () => {
         email: '',
         message: ''
       })
-    }, 1500)
+    } catch (err) {
+      setError('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.')
+      console.error('Error sending form:', err)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -43,6 +83,12 @@ const Contact = () => {
         <h2 className="text-3xl font-bold text-center mb-12">Связаться с нами</h2>
         
         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6 md:p-8">
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-lg">
+              {error}
+            </div>
+          )}
+
           {isSubmitted ? (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">✅</div>
