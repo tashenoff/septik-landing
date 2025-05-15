@@ -1,17 +1,20 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="py-16 md:py-24 bg-gray-50">
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-montserrat mb-4">
-              О нашей технологии
+              {t('about.title')}
             </h2>
             <div className="w-20 h-1 bg-teal-600 mx-auto mb-6"></div>
             <p className="text-gray-600 text-lg">
-              Эффективные и экологичные решения для обслуживания септиков
+              {t('about.subtitle')}
             </p>
           </div>
           
@@ -21,7 +24,7 @@ const About = () => {
             <div className="bg-gradient-to-r from-teal-600 to-teal-700 py-6 px-8">
               <h3 className="text-2xl font-bold text-white font-montserrat flex items-center">
                 <span className="mr-3 text-2xl">🧪</span>
-                Что такое Т-103 и зачем он нужен?
+                {t('about.t103.title')}
               </h3>
             </div>
             
@@ -31,33 +34,33 @@ const About = () => {
                 <div className="bg-teal-50 rounded-lg p-5 border-l-4 border-teal-600">
                   <div className="flex items-center mb-3">
                     <span className="text-teal-600 text-2xl mr-3">🌱</span>
-                    <h4 className="font-medium text-teal-800">Био-формула</h4>
+                    <h4 className="font-medium text-teal-800">{t('about.t103.cards.bio_formula.title')}</h4>
                   </div>
-                  <p className="text-gray-700">Т-103 — это мощная химия, но полностью биоразлагаемая</p>
+                  <p className="text-gray-700">{t('about.t103.cards.bio_formula.description')}</p>
                 </div>
                 
                 <div className="bg-teal-50 rounded-lg p-5 border-l-4 border-teal-600">
                   <div className="flex items-center mb-3">
                     <span className="text-teal-600 text-2xl mr-3">⏱️</span>
-                    <h4 className="font-medium text-teal-800">Быстрое действие</h4>
+                    <h4 className="font-medium text-teal-800">{t('about.t103.cards.fast_action.title')}</h4>
                   </div>
-                  <p className="text-gray-700">Заливаем в септик канистру Т-103, ждём всего 24 часа</p>
+                  <p className="text-gray-700">{t('about.t103.cards.fast_action.description')}</p>
                 </div>
                 
                 <div className="bg-teal-50 rounded-lg p-5 border-l-4 border-teal-600">
                   <div className="flex items-center mb-3">
                     <span className="text-teal-600 text-2xl mr-3">💧</span>
-                    <h4 className="font-medium text-teal-800">Полная очистка</h4>
+                    <h4 className="font-medium text-teal-800">{t('about.t103.cards.full_cleaning.title')}</h4>
                   </div>
-                  <p className="text-gray-700">За это время препарат разжижает весь ил и грязь — не только воду, но и плотные отходы!</p>
+                  <p className="text-gray-700">{t('about.t103.cards.full_cleaning.description')}</p>
                 </div>
                 
                 <div className="bg-teal-50 rounded-lg p-5 border-l-4 border-teal-600">
                   <div className="flex items-center mb-3">
                     <span className="text-teal-600 text-2xl mr-3">🚚</span>
-                    <h4 className="font-medium text-teal-800">Эффективная откачка</h4>
+                    <h4 className="font-medium text-teal-800">{t('about.t103.cards.effective_pumping.title')}</h4>
                   </div>
-                  <p className="text-gray-700">Ассенизатор сможет откачать всё подчистую!</p>
+                  <p className="text-gray-700">{t('about.t103.cards.effective_pumping.description')}</p>
                 </div>
               </div>
               
@@ -65,17 +68,15 @@ const About = () => {
               <div className="mt-8 bg-gray-50 rounded-lg p-6">
                 <h4 className="font-bold text-gray-800 mb-4 flex items-center">
                   <span className="text-teal-600 text-2xl mr-3">✨</span>
-                  Дополнительные преимущества
+                  {t('about.t103.additional_benefits.title')}
                 </h4>
                 <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-3 mt-1">✓</span>
-                    <p className="text-gray-700">Большая часть Т-103 превращается в углекислый газ и воду, остатки легко удаляются</p>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-teal-600 mr-3 mt-1">✓</span>
-                    <p className="text-gray-700">Можно проливать все сливы в доме — прочистит трубы и уберёт запах</p>
-                  </li>
+                  {(t('about.t103.additional_benefits.items', { returnObjects: true }) as string[]).map((item: string, index: number) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-teal-600 mr-3 mt-1">✓</span>
+                      <p className="text-gray-700">{item}</p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -87,7 +88,7 @@ const About = () => {
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 py-6 px-8">
               <h3 className="text-2xl font-bold text-white font-montserrat flex items-center">
                 <span className="mr-3 text-2xl">🧬</span>
-                На следующий день заливаем Т-107
+                {t('about.t107.title')}
               </h3>
             </div>
             
@@ -97,33 +98,33 @@ const About = () => {
                 <div className="bg-blue-50 rounded-lg p-5 border-l-4 border-blue-600">
                   <div className="flex items-center mb-3">
                     <span className="text-blue-600 text-2xl mr-3">🧫</span>
-                    <h4 className="font-medium text-blue-800">Полезные бактерии</h4>
+                    <h4 className="font-medium text-blue-800">{t('about.t107.cards.bacteria.title')}</h4>
                   </div>
-                  <p className="text-gray-700">Это — суперконцентрат полезных бактерий для биологической очистки</p>
+                  <p className="text-gray-700">{t('about.t107.cards.bacteria.description')}</p>
                 </div>
                 
                 <div className="bg-blue-50 rounded-lg p-5 border-l-4 border-blue-600">
                   <div className="flex items-center mb-3">
                     <span className="text-blue-600 text-2xl mr-3">🔬</span>
-                    <h4 className="font-medium text-blue-800">Высокая концентрация</h4>
+                    <h4 className="font-medium text-blue-800">{t('about.t107.cards.concentration.title')}</h4>
                   </div>
-                  <p className="text-gray-700">На 100 г — около 300 миллиардов клеток живых бактерий</p>
+                  <p className="text-gray-700">{t('about.t107.cards.concentration.description')}</p>
                 </div>
                 
                 <div className="bg-blue-50 rounded-lg p-5 border-l-4 border-blue-600">
                   <div className="flex items-center mb-3">
                     <span className="text-blue-600 text-2xl mr-3">🌍</span>
-                    <h4 className="font-medium text-blue-800">Глубокая очистка</h4>
+                    <h4 className="font-medium text-blue-800">{t('about.t107.cards.deep_cleaning.title')}</h4>
                   </div>
-                  <p className="text-gray-700">Они доочищают почву в глубину, а главное — остаются работать дальше</p>
+                  <p className="text-gray-700">{t('about.t107.cards.deep_cleaning.description')}</p>
                 </div>
                 
                 <div className="bg-blue-50 rounded-lg p-5 border-l-4 border-blue-600">
                   <div className="flex items-center mb-3">
                     <span className="text-blue-600 text-2xl mr-3">👍</span>
-                    <h4 className="font-medium text-blue-800">Долгосрочный эффект</h4>
+                    <h4 className="font-medium text-blue-800">{t('about.t107.cards.long_effect.title')}</h4>
                   </div>
-                  <p className="text-gray-700">Всё, что потом попадёт в септик, будет переработано бактериями!</p>
+                  <p className="text-gray-700">{t('about.t107.cards.long_effect.description')}</p>
                 </div>
               </div>
               
@@ -131,11 +132,10 @@ const About = () => {
               <div className="mt-8 bg-gray-50 rounded-lg p-6">
                 <h4 className="font-bold text-gray-800 mb-4 flex items-center">
                   <span className="text-blue-600 text-2xl mr-3">🌿</span>
-                  Экологическая безопасность
+                  {t('about.t107.eco_safety.title')}
                 </h4>
                 <p className="text-gray-700">
-                  Препарат Т-107 полностью безопасен для окружающей среды и здоровья человека. 
-                  Бактерии естественным образом очищают систему без использования агрессивной химии.
+                  {t('about.t107.eco_safety.description')}
                 </p>
               </div>
             </div>

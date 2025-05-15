@@ -1,51 +1,53 @@
 import React from 'react';
-import type { KeyboardEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   const handleContactClick = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-  }
-  
-  const handleKeyDown = (e: KeyboardEvent) => {
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
-      handleContactClick()
+      handleContactClick();
     }
-  }
-  
+  };
+
   const handleScrollDown = () => {
     document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section className="relative h-screen flex items-center">
-      {/* Фоновое изображение */}
-      <div className="absolute inset-0 bg-cover" style={{ 
-        backgroundImage: 'url(/images/bg.png)',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
-      }}></div>
-      
-      {/* Тонировка изображения */}
-      <div className="absolute inset-0 bg-teal-900/70"></div>
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-teal-700 to-teal-900 text-white py-32"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(13, 148, 136, 0.9), rgba(13, 148, 136, 0.9)), url("/images/hero-bg.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       
       <div className="container relative">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-montserrat leading-tight">
-            Современный подход к обслуживанию септиков
+            {t('hero.title')}
           </h1>
           <p className="text-xl text-teal-50 mb-8 max-w-2xl mx-auto">
-            Используем инновационные биотехнологии для эффективной очистки, 
-            которые безопасны для природы и дают долгосрочный результат.
+            {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button 
               onClick={handleContactClick}
               onKeyDown={handleKeyDown}
               className="btn btn-white group"
-              aria-label="Получить консультацию"
+              aria-label={t('hero.get_consultation')}
               tabIndex={0}
             >
-              <span>Получить консультацию</span>
+              <span>{t('hero.get_consultation')}</span>
               <svg 
                 className="w-5 h-5 ml-2 transform transition-transform group-hover:translate-x-1" 
                 fill="none" 
@@ -61,7 +63,7 @@ const Hero: React.FC = () => {
               className="btn border-2 border-white/30 text-white hover:bg-white/10"
               tabIndex={0}
             >
-              Узнать о услугах
+              {t('hero.learn_services')}
             </a>
           </div>
         </div>

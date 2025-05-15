@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { t } = useTranslation()
   
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 50) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
@@ -56,20 +59,21 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <nav className="flex items-center space-x-1 mr-6">
               <a href="#services" className="header-link">
-                Услуги
+                {t('header.services')}
               </a>
               <a href="#about" className="header-link">
-                О технологии
+                {t('header.about')}
               </a>
               <a href="#process" className="header-link">
-                Процесс
+                {t('header.process')}
               </a>
               <a href="#benefits" className="header-link">
-                Преимущества
+                {t('header.benefits')}
               </a>
               <a href="#contact" className="header-link">
-                Контакты
+                {t('header.contacts')}
               </a>
+              <LanguageSwitcher />
             </nav>
             
             <div className="flex items-center">
@@ -87,7 +91,7 @@ const Header = () => {
                 href="#contact" 
                 className="btn btn-white py-2 px-4 text-sm"
               >
-                Связаться
+                {t('header.contact_us')}
               </a>
             </div>
           </div>
@@ -138,43 +142,44 @@ const Header = () => {
               className="text-white text-lg font-medium hover:text-teal-200 transition-colors px-2 py-1"
               onClick={handleMenuItemClick}
             >
-              Услуги
+              {t('header.services')}
             </a>
             <a 
               href="#about" 
               className="text-white text-lg font-medium hover:text-teal-200 transition-colors px-2 py-1"
               onClick={handleMenuItemClick}
             >
-              О технологии
+              {t('header.about')}
             </a>
             <a 
               href="#process" 
               className="text-white text-lg font-medium hover:text-teal-200 transition-colors px-2 py-1"
               onClick={handleMenuItemClick}
             >
-              Процесс
+              {t('header.process')}
             </a>
             <a 
               href="#benefits" 
               className="text-white text-lg font-medium hover:text-teal-200 transition-colors px-2 py-1"
               onClick={handleMenuItemClick}
             >
-              Преимущества
+              {t('header.benefits')}
             </a>
             <a 
               href="#contact" 
               className="text-white text-lg font-medium hover:text-teal-200 transition-colors px-2 py-1"
               onClick={handleMenuItemClick}
             >
-              Контакты
+              {t('header.contacts')}
             </a>
+            <LanguageSwitcher />
             <div className="pt-4 mt-2 border-t border-teal-600">
               <a 
                 href="#contact" 
                 className="bg-white text-teal-700 px-4 py-2 rounded-md font-medium inline-block w-full text-center shadow hover:bg-teal-50 transition-colors"
                 onClick={handleMenuItemClick}
               >
-                Связаться с нами
+                {t('header.contact_us')}
               </a>
             </div>
           </nav>
