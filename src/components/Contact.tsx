@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 const TELEGRAM_BOT_TOKEN = '7149336396:AAE4xjrsCP6ywesCqinKSKy-gKLKZJqwBnQ'
-const TELEGRAM_CHAT_ID = '-1002489543692'
+const TELEGRAM_CHAT_ID = '-1002553764340'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
