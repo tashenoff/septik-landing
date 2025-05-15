@@ -97,24 +97,27 @@ const Header = () => {
           </div>
           
           {/* Mobile menu button */}
-          <button 
-            type="button"
-            className="md:hidden text-white p-2 rounded-md hover:bg-teal-600 transition-colors" 
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
-            aria-expanded={isMobileMenuOpen}
-            data-testid="mobile-menu-button"
-          >
-            {isMobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            <button 
+              type="button"
+              className="text-white p-2 rounded-md hover:bg-teal-600 transition-colors" 
+              onClick={toggleMobileMenu}
+              aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
+              aria-expanded={isMobileMenuOpen}
+              data-testid="mobile-menu-button"
+            >
+              {isMobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </div>
       
@@ -172,7 +175,6 @@ const Header = () => {
             >
               {t('header.contacts')}
             </a>
-            <LanguageSwitcher />
             <div className="pt-4 mt-2 border-t border-teal-600">
               <a 
                 href="#contact" 
