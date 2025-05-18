@@ -189,13 +189,13 @@ const Contact = () => {
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="text-3xl mb-4">📱</div>
             <h3 className="text-xl font-semibold mb-2">{t('contact.contacts.phone')}</h3>
-            <p className="text-gray-600">+7 (999) 123-45-67</p>
+            <p className="text-gray-600">+7 707 926-35-81</p>
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="text-3xl mb-4">📧</div>
             <h3 className="text-xl font-semibold mb-2">{t('contact.contacts.email')}</h3>
-            <p className="text-gray-600">info@ecoseptic.ru</p>
+            <p className="text-gray-600">wbtbiot@gmail.com</p>
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow-sm">
