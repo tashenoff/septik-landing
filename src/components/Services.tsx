@@ -68,6 +68,14 @@ const Services = () => {
     {
       key: 'consultation',
       icon: '💡'
+    },
+    {
+      key: 'waste',
+      icon: '🗑️'
+    },
+    {
+      key: 'installation',
+      icon: '⚒️'
     }
   ]
 
