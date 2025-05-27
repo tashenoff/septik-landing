@@ -47,7 +47,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold font-montserrat mb-4">{t('footer.contacts.title')}</h3>
             <ul className="space-y-3">
-              <li className="flex items-start">
+              {/* <li className="flex items-start">
                 <svg 
                   className="w-5 h-5 text-teal-500 mr-3 mt-0.5" 
                   fill="none" 
@@ -63,7 +63,7 @@ const Footer = () => {
                   />
                 </svg>
                 <span>{t('footer.contacts.phone')}</span>
-              </li>
+              </li> */}
               <li className="flex items-start">
                 <svg 
                   className="w-5 h-5 text-teal-500 mr-3 mt-0.5" 
