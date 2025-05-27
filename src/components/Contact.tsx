@@ -185,7 +185,7 @@ const Contact = () => {
           </form>
         )}
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="text-3xl mb-4">📱</div>
             <h3 className="text-xl font-semibold mb-2">{t('contact.contacts.phone')}</h3>
@@ -203,7 +203,7 @@ const Contact = () => {
             <h3 className="text-xl font-semibold mb-2">{t('contact.contacts.working_hours')}</h3>
             <p className="text-gray-600">{t('contact.contacts.working_hours_value')}</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
