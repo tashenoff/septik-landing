@@ -50,8 +50,9 @@ const Header = () => {
               alt="Эко логотип" 
               className="h-16 md:h-20"
             />
-            <span className="ml-3 text-white font-bold text-xl md:text-2xl font-montserrat tracking-wide">
-              WBIOT
+            <span className="ml-3 flex flex-col">
+              <span className="text-white font-bold text-xl md:text-2xl font-montserrat tracking-wide">WBIOT</span>
+              <span className="text-xs text-white/80 font-light mt-1 ml-0.5">нас рекомендуют соседи!</span>
             </span>
           </a>
           

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaWhatsapp } from 'react-icons/fa'
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 
 const reviews = [
   {
@@ -84,11 +84,17 @@ const ReviewsSection = () => (
           <ReviewCard key={idx} {...review} />
         ))}
       </div>
-      <div className="flex justify-center mt-8 gap-4">
-        <a href="https://www.instagram.com/wbiot?igsh=MWlkZnBpdWFvNzJlOQ==" className="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors" aria-label="Посмотреть все отзывы в Instagram" tabIndex={0}>
-          Посмотреть все отзывы
-        </a>
-      </div>
+      <a
+        href="https://www.instagram.com/wbiot?igsh=MWlkZnBpdWFvNzJlOQ=="
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-3 mt-8 mb-2 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 rounded-xl shadow-md py-4 px-6 text-white font-semibold text-lg hover:scale-105 transition-transform duration-200"
+        aria-label="Больше отзывов — в нашем Instagram"
+        tabIndex={0}
+      >
+        <FaInstagram className="w-7 h-7" />
+        <span>Больше отзывов — в нашем Instagram</span>
+      </a>
     </div>
     <FloatingWhatsappButton />
   </section>
