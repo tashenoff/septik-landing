@@ -181,7 +181,7 @@
     }
   },
   "footer": {
-    "company_name": "ЭкоСептик",
+    "company_name": "WBIOT",
     "description": "Профессиональная очистка септиков с использованием биотехнологий",
     "scroll_to_top": "Прокрутить вверх",
         "contacts": {      "title": "Контакты",      "phone": "+7 707 926-35-81",      "email": "wbtbiot@gmail.com"    },
@@ -193,6 +193,6 @@
       "benefits": "Преимущества",
       "contacts": "Контакты"
     },
-    "copyright": "© 2025 ЭкоСептик. Все права защищены."
+    "copyright": "© 2025 WBIOT. Все права защищены."
   }
 } 
