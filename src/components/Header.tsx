@@ -51,7 +51,7 @@ const Header = () => {
               className="h-16 md:h-20"
             />
             <span className="ml-3 text-white font-bold text-xl md:text-2xl font-montserrat tracking-wide">
-              WBIOT.KZ
+              WBIOT
             </span>
           </a>
           
