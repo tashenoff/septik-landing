@@ -9,7 +9,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
+    city: '',
     message: ''
   })
   
@@ -32,7 +32,7 @@ const Contact = () => {
 
 👤 Имя: ${data.name}
 📱 Телефон: ${data.phone}
-📧 Email: ${data.email || 'Не указан'}
+🏙️ Город: ${data.city || 'Не указан'}
 💬 Сообщение: ${data.message || 'Не указано'}
     `.trim()
 
@@ -68,7 +68,7 @@ const Contact = () => {
       setFormData({
         name: '',
         phone: '',
-        email: '',
+        city: '',
         message: ''
       })
     } catch (err) {
@@ -135,21 +135,20 @@ const Contact = () => {
                 />
               </div>
             </div>
-            
             <div className="mb-6">
-              <label htmlFor="email" className="block text-gray-700 mb-2">{t('contact.form.email')}</label>
+              <label htmlFor="city" className="block text-gray-700 mb-2">{t('contact.form.city')}*</label>
               <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
+                type="text"
+                id="city"
+                name="city"
+                required
+                value={formData.city}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-                placeholder="example@mail.ru"
+                placeholder={t('contact.form.city')}
                 tabIndex={0}
               />
             </div>
-            
             <div className="mb-6">
               <label htmlFor="message" className="block text-gray-700 mb-2">{t('contact.form.message')}</label>
               <textarea
@@ -163,7 +162,6 @@ const Contact = () => {
                 tabIndex={0}
               />
             </div>
-            
             <div className="text-center">
               <button
                 type="submit"

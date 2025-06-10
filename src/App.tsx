@@ -6,6 +6,7 @@ import Process from './components/Process'
 import Benefits from './components/Benefits'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ReviewsSection from './components/reviews_section'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <About />
         <Process />
         <Benefits />
+        <ReviewsSection />
         <Contact />
       </main>
       <Footer />
