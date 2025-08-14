@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const TELEGRAM_BOT_TOKEN = '7149336396:AAE4xjrsCP6ywesCqinKSKy-gKLKZJqwBnQ'
+const TELEGRAM_BOT_TOKEN = '8481303248:AAHezo0G9aS7yFGh-fWpq8r1OE0-KvZ1Ndo'
 const TELEGRAM_CHAT_ID = '-1002553764340'
 
 const Contact = () => {
