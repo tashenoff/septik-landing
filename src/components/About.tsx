@@ -57,7 +57,7 @@ const About = () => {
                 
                 <div className="bg-teal-50 rounded-lg p-5 border-l-4 border-teal-600">
                   <div className="flex items-center mb-3">
-                    <span className="text-teal-600 text-2xl mr-3">🚚</span>
+                    <span className="text-teal-600 text-2xl mr-3">👃</span>
                     <h4 className="font-medium text-teal-800">{t('about.t103.cards.effective_pumping.title')}</h4>
                   </div>
                   <p className="text-gray-700">{t('about.t103.cards.effective_pumping.description')}</p>
